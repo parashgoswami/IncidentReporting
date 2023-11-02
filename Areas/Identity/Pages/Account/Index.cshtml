@@ -1,0 +1,56 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model IEnumerable<ApplicationUser>
+
+
+@{
+    ViewData["Title"] = "Application Users";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1> View Roles</h1>
+<p>
+    <a asp-action="Register">Back to Register</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor( model =>model.Firstname)</th>
+
+            <th>@Html.DisplayNameFor( model =>model.Lastname)</th>
+            <th>@Html.DisplayNameFor( model =>model.EmpCode)</th>
+            <th>@Html.DisplayNameFor( model =>model.EmpName)</th>
+            <th>@Html.DisplayNameFor( model =>model.ProjectName)</th>
+            <th>@Html.DisplayNameFor( model =>model.Email)</th>
+            @* <th>@Html.DisplayNameFor( model =>model.Role)</th> *@
+
+            <th>    </th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Firstname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Lastname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmpCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmpName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProjectName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

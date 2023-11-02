@@ -1,0 +1,159 @@
+﻿@model IncidentReporting.Models.Dangerous
+
+@{
+    ViewData["Title"] = "Action";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<h4>Action on Dangerous Accidents</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Action">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="RequestId" class="control-label"></label>
+                <input asp-for="RequestId" class="form-control" readonly />
+                <span asp-validation-for="RequestId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Project" class="control-label"></label>
+                <input asp-for="Project" class="form-control" readonly />
+                <span asp-validation-for="Project" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Period" class="control-label"></label>
+                <input asp-for="Period" class="form-control" readonly />
+                <span asp-validation-for="Period" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReleaseDate" class="control-label"></label>
+                <input asp-for="ReleaseDate" class="form-control" readonly />
+                <span asp-validation-for="ReleaseDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LocationIncident" class="control-label"></label>
+                <input asp-for="LocationIncident" class="form-control" readonly />
+                <span asp-validation-for="LocationIncident" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NatureOcc" class="control-label"></label>
+                <input asp-for="NatureOcc" class="form-control" readonly />
+                <span asp-validation-for="NatureOcc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DepartmentDiv" class="control-label"></label>
+                <input asp-for="DepartmentDiv" class="form-control" readonly />
+                <span asp-validation-for="DepartmentDiv" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" readonly />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NameEquip" class="control-label"></label>
+                <input asp-for="NameEquip" class="form-control" readonly />
+                <span asp-validation-for="NameEquip" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Manufacturer" class="control-label"></label>
+                <input asp-for="Manufacturer" class="form-control" readonly />
+                <span asp-validation-for="Manufacturer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PurposeUsed" class="control-label"></label>
+                <input asp-for="PurposeUsed" class="form-control" readonly />
+                <span asp-validation-for="PurposeUsed" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateOfManufacture" class="control-label"></label>
+                <input asp-for="DateOfManufacture" class="form-control" readonly />
+                <span asp-validation-for="DateOfManufacture" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateOfInstallation" class="control-label"></label>
+                <input asp-for="DateOfInstallation" class="form-control" readonly />
+                <span asp-validation-for="DateOfInstallation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastDateOfMaintenance" class="control-label"></label>
+                <input asp-for="LastDateOfMaintenance" class="form-control" readonly />
+                <span asp-validation-for="LastDateOfMaintenance" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastDateTest" class="control-label"></label>
+                <input asp-for="LastDateTest" class="form-control" readonly />
+                <span asp-validation-for="LastDateTest" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NatureDamage" class="control-label"></label>
+                <input asp-for="NatureDamage" class="form-control" readonly />
+                <span asp-validation-for="NatureDamage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReasonOccurence" class="control-label"></label>
+                <input asp-for="ReasonOccurence" class="form-control" readonly />
+                <span asp-validation-for="ReasonOccurence" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EyeWitnessPerson" class="control-label"></label>
+                <input asp-for="EyeWitnessPerson" class="form-control" readonly />
+                <span asp-validation-for="EyeWitnessPerson" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DescByWitness" class="control-label"></label>
+                <input asp-for="DescByWitness" class="form-control" readonly />
+                <span asp-validation-for="DescByWitness" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PrvAction" class="control-label"></label>
+                <input asp-for="PrvAction" class="form-control" readonly />
+                <span asp-validation-for="PrvAction" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Remark" class="control-label"></label>
+                <input asp-for="Remark" class="form-control" readonly />
+                <span asp-validation-for="Remark" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Status" class="control-label"></label>
+                <input asp-for="Status" class="form-control" />
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StatusDangerous" class="control-label"></label>
+                <select asp-for="StatusDangerous" class="control-label">
+                    <option value=""> Please select</option>
+                    <option value="Approved">Approved</option>
+                    <option value="Rejected">Rejected</option>
+                    <option value="Returned">Returned</option>
+
+                </select>
+                <span asp-validation-for="StatusDangerous" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RemarkHod" class="control-label"></label>
+                <input asp-for="RemarkHod" class="form-control" />
+                <span asp-validation-for="RemarkHod" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

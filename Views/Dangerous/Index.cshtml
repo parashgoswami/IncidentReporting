@@ -1,0 +1,232 @@
+﻿@*@model IEnumerable<IncidentReporting.Models.Dangerous>*@
+@model PaginatedList<IncidentReporting.Models.Dangerous>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h4>Dangerous Accidents</h4>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<form asp-action="Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Find by Period/Div: <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
+            <input type="submit" value="Search" class="btn btn-default" /> |
+            <a asp-action="Index">Back to Full List</a>
+        </p>
+    </div>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @*@Html.DisplayNameFor(model => model.RequestId)*@
+                Incident Year
+
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Project)*@
+                Project
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Period)*@
+
+      @* <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]">@Html.DisplayNameFor(model => model.Period)</a>*@
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Period</a>
+            </th>
+            @* <th>
+               
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Incident Date</a>
+            </th>
+            <th>
+              
+               Location of Incident
+            </th>
+            <th>
+                
+                Nature of Occurence
+            </th> *@
+            <th>
+              @*  @Html.DisplayNameFor(model => model.DepartmentDiv)*@
+                Department/Div
+            </th>
+            <th>
+               @* @Html.DisplayNameFor(model => model.Description)*@
+                Description
+            </th>
+            @* <th>
+               
+                Name of Equipment
+            </th>
+            <th>
+              
+                Manufacturer
+            </th>
+            <th>
+              
+                Purpose Used
+            </th>
+            <th>
+                
+                Date Of Manufacture
+            </th>
+            <th>
+               
+                Date Of Installation
+            </th>
+            <th>
+               
+                Last Date Of Maintenance
+            </th>
+            <th>
+               
+                Last Date Test
+            </th>
+            <th>
+              
+                Nature of Damage
+            </th>
+            <th>
+               
+                Reason of Occurence
+            </th>
+            <th>
+                
+                Eye Witness Person
+            </th>
+            <th>
+               
+                Desc By Witness
+            </th>
+            <th>
+               
+                Prv Action
+            </th> *@
+            <th>
+                
+                Remark
+            </th>
+           @* <th>
+               
+                HOD Status
+            </th>
+            <th>
+                
+                Remark of Hod
+            </th>*@
+            <th>
+                @*@Html.DisplayNameFor(model => model.Status)*@
+                Status Occurrence
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequestId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Project)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Period)
+            </td>
+            @* <td>
+                @Html.DisplayFor(modelItem => item.ReleaseDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LocationIncident)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NatureOcc)
+            </td> *@
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartmentDiv)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            @* <td>
+                @Html.DisplayFor(modelItem => item.NameEquip)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Manufacturer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PurposeUsed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfManufacture)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfInstallation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastDateOfMaintenance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastDateTest)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NatureDamage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReasonOccurence)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EyeWitnessPerson)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescByWitness)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrvAction)
+            </td> *@
+            <td>
+                @Html.DisplayFor(modelItem => item.Remark)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.StatusDangerous)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RemarkHod)
+            </td>*@
+            <td>
+                    @Html.DisplayFor(modelItem => item.StatusDangerous)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+               @* <a asp-action="Action" asp-route-id="@item.Id">Action</a>*@
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex - 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @prevDisabled">
+    Previous
+</a>
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex + 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @nextDisabled">
+    Next
+</a>

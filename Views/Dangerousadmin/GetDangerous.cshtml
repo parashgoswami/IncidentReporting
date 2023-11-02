@@ -1,0 +1,444 @@
+﻿@{
+    ViewData["Title"] = "NIREP";
+    Layout = "~/Views/Shared/_LayoutTest.cshtml";
+}
+
+
+
+<title> DataTable Filtering Column Wise</title>
+
+
+<head>
+  
+
+   @*  <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <link href="https://cdn.datatables.net/buttons/2.3.6/css/buttons.dataTables.min.css" rel="stylesheet" />
+    <link href="~/css/DatatableCss/jquery.dataTables.min.css" rel="stylesheet" /> *@
+
+    <script src="~/Datatable/jquery.dataTables.min.js"></script>
+     <script src="~/Datatable/jquery-3.7.0.js"></script>
+     <link href="~/css/DatatableCss/buttons.dataTables.min.css" rel="stylesheet" />
+    <link href="~/css/DatatableCss/jquery.dataTables.min.css" rel="stylesheet" />
+    <style>
+
+        tfoot input {
+            width: 100%;
+            padding: 3px;
+            box-sizing: border-box;
+        }
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $.ajax({
+
+                url: '/Dangerousadmin/GetList',
+                method: 'Get',
+                dataType: 'json',
+                success: function (data) {
+
+                   var dataTableInstance= $('#employeeTable').DataTable({
+                        bProcessing: true,
+                        bLengthChange: true,
+                        lengthMenu: [[5, 10, 25, -1], [5, 10, 25, "All"]],
+                        bfilter: true,
+                        bPaginate: true,
+                      //  paging: true,
+                        sort: true,
+                        searching: true,
+                        // scrolly: 200,
+                        data: data,
+                        columns:
+                            [
+
+                               {
+                data: 'Id',
+                render: function (data, type, row, meta) {
+                    return row.id
+                }
+
+            },
+
+            {
+                data: 'RequestId',
+                render: function (data, type, row, meta) {
+                    return row.requestId
+                }
+
+            },
+            {
+                data: 'Project',
+                render: function (data, type, row, meta) {
+                    return row.project
+                }
+
+            },
+            {
+                data: 'Period',
+                render: function (data, type, row, meta) {
+                    return row.period
+                }
+
+            },
+
+            {
+                data: 'ReleaseDate',
+                render: function (data, type, row, meta) {
+                    return row.releaseDate
+                }
+
+            },
+
+            {
+                data: 'LocationIncident',
+                render: function (data, type, row, meta) {
+                    return row.locationIncident
+                }
+
+            },
+
+            {
+                data: 'NatureOcc',
+                render: function (data, type, row, meta) {
+                    return row.natureOcc
+                }
+
+            },
+
+            {
+                data: 'DepartmentDiv',
+                render: function (data, type, row, meta) {
+                    return row.departmentDiv
+                }
+
+            },
+
+            {
+                data: 'Description',
+                render: function (data, type, row, meta) {
+                    return row.description
+                }
+
+            },
+
+            {
+                data: 'NameEquip',
+                render: function (data, type, row, meta) {
+                    return row.nameEquip
+                }
+
+            },
+
+            {
+                data: 'Manufacturer',
+                render: function (data, type, row, meta) {
+                    return row.manufacturer
+                }
+
+            },
+            {
+                data: 'PurposeUsed',
+                render: function (data, type, row, meta) {
+                    return row.purposeUsed
+                }
+
+            },
+
+            {
+                data: 'DateOfManufacture',
+                render: function (data, type, row, meta) {
+                    return row.dateOfManufacture
+                }
+
+            },
+
+
+
+
+
+            {
+                data: 'DateOfInstallation',
+                render: function (data, type, row, meta) {
+                    return row.dateOfInstallation
+                }
+
+            },
+            
+
+           {
+               data: 'LastDateOfMaintenance',
+                render: function (data, type, row, meta) {
+                    return row.lastDateOfMaintenance
+                }
+
+            },
+
+
+            {
+                data: 'LastDateTest',
+                render: function (data, type, row, meta) {
+                    return row.lastDateTest
+                }
+
+            },
+
+            {
+                data: 'NatureDamage',
+                render: function (data, type, row, meta) {
+                    return row.natureDamage
+                }
+
+            },
+
+
+            {
+                data: 'ReasonOccurence',
+                render: function (data, type, row, meta) {
+                    return row.reasonOccurence
+                }
+
+            },
+
+
+            {
+                data: 'EyeWitnessPerson',
+                render: function (data, type, row, meta) {
+                    return row.eyeWitnessPerson
+                }
+
+            },
+
+            {
+                data: 'DescByWitness',
+                render: function (data, type, row, meta) {
+                    return row.descByWitness
+                }
+
+            },
+
+            {
+                data: 'PrvAction',
+                render: function (data, type, row, meta) {
+                    return row.prvAction
+                }
+
+            },
+
+            {
+                data: 'Remark',
+                render: function (data, type, row, meta) {
+                    return row.remark
+                }
+
+            },
+            {
+                data: 'StatusDangerous',
+                render: function (data, type, row, meta) {
+                    return row.statusDangerous
+                }
+
+            },
+            {
+                data: 'RemarkHod',
+                render: function (data, type, row, meta) {
+                    return row.remarkHod
+                }
+
+            },
+
+            {
+                data: 'Status',
+                render: function (data, type, row, meta) {
+                    return row.status
+                }
+
+            },
+
+
+                            ],
+
+                        dom: 'Bfrtip',
+                        buttons: [
+                            {
+                                extend: 'pdfHtml5',
+                                orientation: 'landscape',
+                                pageSize: 'A3'
+                            },
+                            'copy', 'csv', 'excel', 'print'
+                        ]
+                    });
+
+        // $('#employeeTable tfoot th').each(function () {
+        // var title = $('#employeeTable thead th').eq($(this).index()).text();
+        // $(this).html('<input type="text" placeholder="search ' + title+'"/>');
+
+
+
+        // });
+
+        // dataTableInstance.columns().every(function () {
+
+        //                 var datatableColumns = this;
+        //                 $(this.footer()).find('input').on('keyup change', function () {
+        //                     datatableColumns.search(this.value).draw();
+
+        //                 });
+        //             });
+        
+       
+
+dataTableInstance
+          .columns([1,2,3])
+          .flatten()
+          .each(function (colID) {
+ 
+            // Create the select list in the
+            // header column header
+            // On change of the list values,
+            // perform search operation
+            var mySelectList = $("<select />")
+              .appendTo(dataTableInstance.column(colID).footer())
+              .on("change", function () {
+                dataTableInstance.column(colID).search($(this).val());
+ 
+                // update the changes using draw() method
+                dataTableInstance.column(colID).draw();
+              });
+ 
+            // Get the search cached data for the
+            // first column add to the select list
+            // using append() method
+            // sort the data to display to user
+            // all steps are done for EACH column
+            dataTableInstance
+              .column(colID)
+              .cache("search")
+              .unique()
+              .sort()
+              .each(function (param) {
+                mySelectList.append(
+                  $('<option value="' + param + '">'
+                    + param + "</option>")
+                );
+              });
+          });
+
+
+
+
+
+                }
+
+
+            });
+        });
+
+        
+
+
+        </Script>
+
+       
+</head>
+
+
+
+<body>
+    <h2>
+        Column specific search ::Report
+        
+    </h2>
+
+    <!--HTML tables with student data
+    <div style="border:1px solid black; padding:3px; width:1200px">-->
+<div class="container">
+    <div class="row">
+        <div class="col-8-offset-2">
+    
+    <table id="employeeTable" class="display"
+           style="width: 100%">
+        <thead>
+            <tr>
+                
+            <tr>
+                <th>Sl No.</th>
+                        <th>Incident Year</th>
+                        <th>Project</th>
+                        <th> Period </th>
+                        <th> Incident Date  </th>
+                        <th> Location of Incident </th>
+                        <th> Nature Occ  </th>
+                        <th> Department/Div </th>
+                        <th> Description  </th>
+                        <th> Name of Equip  </th>
+                        <th> Manufacturer </th>
+                        <th> Purpose Used  </th>
+                        <th>  DateOfManufacture </th>
+                        <th>  DateOfInstallation </th>
+                        <th> LastDateOfMaintenance  </th>
+                        <th>  LastDateTest </th>
+                        <th> NatureDamage  </th>
+                        <th> ReasonOccurence  </th>
+                        <th>  EyeWitnessPerson </th>
+                        <th> DescByWitness  </th>
+                        <th>PrvAction   </th>                      
+                        <th> Remark  </th>
+                        <th>Status </th>
+                        <th> Acceptance of HOD </th>
+                        <th>Remark of HOD  </th>
+            </tr>
+        </thead>
+        <tbody>
+            
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>Sl No.</th>
+                        <th>Incident Year</th>
+                        <th>Project</th>
+                        <th> Period </th>
+                        <th> Incident Date  </th>
+                        <th> Location of Incident </th>
+                        <th> Nature Occ  </th>
+                        <th> Department/Div </th>
+                        <th> Description  </th>
+                        <th> Name of Equip  </th>
+                        <th> Manufacturer </th>
+                        <th> Purpose Used  </th>
+                        <th>  DateOfManufacture </th>
+                        <th>  DateOfInstallation </th>
+                        <th> LastDateOfMaintenance  </th>
+                        <th>  LastDateTest </th>
+                        <th> NatureDamage  </th>
+                        <th> ReasonOccurence  </th>
+                        <th>  EyeWitnessPerson </th>
+                        <th> DescByWitness  </th>
+                        <th>PrvAction   </th>                      
+                        <th> Remark  </th>
+                        <th>Status </th>
+                        <th> Acceptance of HOD </th>
+                        <th>Remark of HOD  </th>
+               
+            </tr>
+        </tfoot>
+    </table>
+    </div>
+       </div>
+</div>
+    <br />
+
+   
+</body>
+
+
+
+
+
+
+@* @section scripts{
+    <script src="~/js/datatable_file_dan.js"></script>
+
+
+} *@
+

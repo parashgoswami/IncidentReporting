@@ -1,0 +1,105 @@
+﻿@model IncidentReporting.Models.Nearmiss
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layouthod.cshtml";
+}
+
+
+
+<div>
+    <h4>Nearmiss Incident Details</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RequestId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RequestId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Project)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Project)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Period)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Period)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ReleaseDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ReleaseDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LocationIncident)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LocationIncident)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DepartmentDiv)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DepartmentDiv)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EyeWitness)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EyeWitness)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Escape)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Escape)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Reason)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Reason)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PrvMeasure)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PrvMeasure)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Remark)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Remark)
+        </dd>
+
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.StatusNearmiss)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StatusNearmiss)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RemarkHod)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RemarkHod)
+        </dd>
+    </dl>
+</div>
+<div>
+    @*<a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> *@|
+    <a asp-action="Index">Back to List</a>
+</div>

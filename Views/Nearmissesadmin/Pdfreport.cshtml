@@ -1,0 +1,136 @@
+﻿@model IncidentReporting.Models.Nearmiss
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@{
+    var data = ViewBag.Project;
+    var RequestqID = ViewBag.Period;
+}
+
+<h4>Nearmiss Incidents Reports</h4>
+<hr />
+
+<form asp-action="CreateDocument" method="post" >
+    <div class="form-group">
+        <label asp-for="Project" class="control-label"></label>
+        <input asp-for="Project" class="form-control" value="@data" readonly />
+        <span asp-validation-for="RequestId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Period" class="control-label"></label>
+        <input asp-for="Period" class="form-control" value="@RequestqID" readonly />
+        <span asp-validation-for="RequestId" class="text-danger"></span>
+    </div>
+    <div class="form-actions no-color">
+        <p>
+          Select Project: @*<input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />*@
+            <select name="SearchString" id="SearchString" class="form-control">
+                <option value=""> Please select</option>
+                <option value="Corporate Office"> Corporate Office</option>
+                <option value="Guwahati Office"> Guwahati Office</option>
+                <option value="Delhi Office"> Delhi Office</option>
+                <option value="KHPS">KHPS</option>
+                <option value="DHPS">DHPS</option>
+                <option value="THPS">THPS</option>
+                <option value="PLHPS">PLHPS</option>
+                <option value="PHPS">PHPS</option>
+                <option value="KaHPS">KaHPS</option>
+                <option value="AGBPS">AGBPS</option>
+                <option value="TGBPS">TGBPS</option>
+                <option value="AgGBPS">AgGBPS</option>
+
+            </select>
+            Select Period:
+            <select name="SearchString1" id="SearchString1" class="form-control">
+                <option value=""> Please select</option>
+                <option value="January">January</option>
+                <option value="February"> February</option>
+                <option value="March">March</option>
+                <option value="April">April</option>
+                <option value="May">May</option>
+                <option value="June">June</option>
+                <option value="July">July</option>
+                <option value="August">August</option>
+                <option value="September">September</option>
+                <option value="October">October</option>
+                <option value="Novenber">Novenber</option>
+                <option value="December">December</option>
+
+            </select>
+            <input type="submit" value="PDF Report" class="btn btn-default" /> |
+            <a asp-action="Index">Back to Full List</a>
+        </p>
+    </div>
+</form>
+
+@*<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateDocument">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="StatusNearmiss" class="control-label"></label>
+
+                <select asp-for="Project" class="control-label">
+                    <option value=""> Please select</option>
+                    <option value="ALL"> ALL</option>
+                    <option value="Corporate Office"> Corporate Office</option>
+                    <option value="Guwahati Office"> Guwahati Office</option>
+                    <option value="Delhi Office"> Delhi Office</option>
+                    <option value="KHPS">KHPS</option>
+                    <option value="DHPS">DHPS</option>
+                    <option value="THPS">THPS</option>
+                    <option value="PLHPS">PLHPS</option>
+                    <option value="PHPS">PHPS</option>
+                    <option value="KaHPS">KaHPS</option>
+                    <option value="AGBPS">AGBPS</option>
+                    <option value="TGBPS">TGBPS</option>
+                    <option value="AgGBPS">AgGBPS</option>
+
+
+                </select>
+                <span asp-validation-for="StatusNearmiss" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Period" class="control-label"></label>
+
+                <select asp-for="Period" class="control-label">
+                    <option value=""> Please select</option>
+                    <option value="January">January</option>
+                    <option value="February"> February</option>
+                    <option value="March">March</option>
+                    <option value="April">April</option>
+                    <option value="May">May</option>
+                    <option value="June">June</option>
+                    <option value="July">July</option>
+                    <option value="August">August</option>
+                    <option value="September">September</option>
+                    <option value="October">October</option>
+                    <option value="Novenber">Novenber</option>
+                    <option value="December">December</option>
+
+
+
+                </select>
+                <span asp-validation-for="StatusNearmiss" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Generate Report" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>*@
+
+@*<div>
+    <a asp-action="Index" >Back to List</a>
+</div>*@
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

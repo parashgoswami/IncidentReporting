@@ -1,0 +1,163 @@
+﻿@model IncidentReporting.Models.Dangerous
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<div>
+    <h4>Details of Dangerous Accident</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RequestId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RequestId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Project)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Project)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Period)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Period)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ReleaseDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ReleaseDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LocationIncident)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LocationIncident)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.NatureOcc)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NatureOcc)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DepartmentDiv)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DepartmentDiv)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.NameEquip)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NameEquip)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Manufacturer)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Manufacturer)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PurposeUsed)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PurposeUsed)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DateOfManufacture)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DateOfManufacture)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DateOfInstallation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DateOfInstallation)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LastDateOfMaintenance)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LastDateOfMaintenance)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LastDateTest)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LastDateTest)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.NatureDamage)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NatureDamage)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ReasonOccurence)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ReasonOccurence)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EyeWitnessPerson)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EyeWitnessPerson)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DescByWitness)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DescByWitness)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PrvAction)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PrvAction)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Remark)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Remark)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.StatusDangerous)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StatusDangerous)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RemarkHod)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RemarkHod)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+    </dl>
+</div>
+<div>
+    @*<a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> *@|
+    <a asp-action="Index">Back to List</a>
+</div>
