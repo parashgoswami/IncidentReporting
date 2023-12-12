@@ -86,7 +86,7 @@ namespace IncidentReporting.Controllers
                 if (!String.IsNullOrEmpty(searchString))
                 {
                     departmental = departmental.Where(s => s.Period.Contains(searchString)
-                                           || s.Department.Contains(searchString));
+                                           || s.Department.Contains(searchString) || s.RequestId.Contains(searchString));
                 }
 
                 return _context.Departmental != null ?
@@ -131,7 +131,7 @@ namespace IncidentReporting.Controllers
                 if (!String.IsNullOrEmpty(searchString))
                 {
                     Departmental = Departmental.Where(s => s.Period.Contains(searchString)
-                                           || s.Department.Contains(searchString));
+                                           || s.Department.Contains(searchString) || s.RequestId.Contains(searchString));
                 }
 
 

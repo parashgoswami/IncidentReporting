@@ -99,7 +99,7 @@ namespace IncidentReporting.Controllers
                 if (!String.IsNullOrEmpty(searchString))
                 {
                     nearmiss = nearmiss.Where(s => s.Period.Contains(searchString)
-                                           || s.DepartmentDiv.Contains(searchString));
+                                           || s.DepartmentDiv.Contains(searchString) || s.RequestId.Contains(searchString));
                     
                 }
                 
@@ -150,7 +150,7 @@ namespace IncidentReporting.Controllers
                 if (!String.IsNullOrEmpty(searchString))
                 {
                     nearmisswithproject = nearmisswithproject.Where(s => s.Period.Contains(searchString)
-                                           || s.DepartmentDiv.Contains(searchString));
+                                           || s.DepartmentDiv.Contains(searchString) || s.RequestId.Contains(searchString));
                 }
                 // return View(await nearmisswithproject.ToListAsync());
                 return View(await PaginatedList<Nearmiss>.CreateAsync(nearmisswithproject.AsNoTracking(), pageNumber ?? 1, pageSize));

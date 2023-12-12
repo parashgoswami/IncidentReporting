@@ -85,7 +85,7 @@ namespace IncidentReporting.Controllers
                 if (!String.IsNullOrEmpty(searchString))
                 {
                     dangerous = dangerous.Where(s => s.Period.Contains(searchString)
-                                           || s.Project.Contains(searchString));
+                                           || s.Project.Contains(searchString) || s.RequestId.Contains(searchString));
                 }
 
                 return _context.Dangerous != null ?
@@ -130,7 +130,7 @@ namespace IncidentReporting.Controllers
                 if (!String.IsNullOrEmpty(searchString))
                 {
                     Dangerous = Dangerous.Where(s => s.Period.Contains(searchString)
-                                           || s.Project.Contains(searchString));
+                                           || s.Project.Contains(searchString) || s.RequestId.Contains(searchString));
                 }
 
                 // return View(await Dangerous.ToListAsync());
