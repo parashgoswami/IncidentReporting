@@ -30,8 +30,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Migrations\" />
-    <Folder Include="wwwroot\dist\" />
     <Folder Include="wwwroot\plugins\" />
+	<Content Include="images\**">
+		<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+	  <Content Include="scripts\**">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Content>  
   </ItemGroup>
 
 </Project>
