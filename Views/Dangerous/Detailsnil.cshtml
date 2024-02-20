@@ -1,0 +1,74 @@
+﻿@model IncidentReporting.Models.Dangerous
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+
+<div>
+    <h4>Details of Dangerous Accident</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RequestId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RequestId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Project)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Project)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Period)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Period)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DepartmentDiv)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DepartmentDiv)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Remark)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Remark)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.StatusDangerous)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StatusDangerous)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RemarkHod)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RemarkHod)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Editnil" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Indexnil">Back to List</a>
+</div>

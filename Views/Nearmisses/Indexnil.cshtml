@@ -1,0 +1,162 @@
+﻿@model PaginatedList<IncidentReporting.Models.Nearmiss>
+
+@*@using PaginatedList<IncidentReporting.Models>*@
+@using IncidentReporting.Models
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h4>NIL Nearmiss Incidents</h4>
+@{
+
+    var RoleID = ViewBag.RoleId;
+}
+<p>
+    <a asp-action="Createnil">Create NIL REPORT</a>
+
+</p>
+
+<form asp-action="Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Find by Period/Div/Year: <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
+            <input type="submit" value="Search" class="btn btn-default" /> |
+            <a asp-action="Index">Back to Full List</a>
+        </p>
+    </div>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                @* @Html.DisplayNameFor(model => model.RequestId)*@
+                Incident Year
+            </th>
+            <th>
+                @* @Html.DisplayNameFor(model => model.Project)*@
+                Project
+
+            </th>
+            <th>
+
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Period</a>
+            </th>
+            @* <th>
+
+            <a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Incident Date</a>
+            </th>
+            <th>
+
+            Location of Incident
+            </th> *@
+            <th>
+                @* @Html.DisplayNameFor(model => model.DepartmentDiv)*@
+                Department/Div
+            </th>
+            <th>
+
+                Description
+            </th>
+            @* <th>
+
+            Eye Witness
+            </th>
+            <th>
+
+            Escape
+            </th>
+            <th>
+
+            Reason of occurence
+            </th>
+            <th>
+
+            Prventive Measure
+            </th> *@
+            <th>
+                @*  @Html.DisplayNameFor(model => model.Remark)*@
+                Remark
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Status)*@
+                Status Nearmiss
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RequestId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Project)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Period)
+                </td>
+                @*  <td>
+            @Html.DisplayFor(modelItem => item.ReleaseDate)
+            </td>
+            <td>
+            @Html.DisplayFor(modelItem => item.LocationIncident)
+            </td> *@
+                <td>
+                    @Html.DisplayFor(modelItem => item.DepartmentDiv)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                @* <td>
+            @Html.DisplayFor(modelItem => item.EyeWitness)
+            </td>
+            <td>
+            @Html.DisplayFor(modelItem => item.Escape)
+            </td>
+            <td>
+            @Html.DisplayFor(modelItem => item.Reason)
+            </td>
+            <td>
+            @Html.DisplayFor(modelItem => item.PrvMeasure)
+            </td> *@
+                <td>
+                    @Html.DisplayFor(modelItem => item.Remark)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StatusNearmiss)
+                </td>
+                <td>
+                    <a asp-action="Editnil" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Detailsnil" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Deletenil" asp-route-id="@item.Id">Delete</a>|
+                    @* <a asp-action="GetNearmiss" asp-route-id="@item.Id">DataTables</a>*@
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex - 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @prevDisabled">
+    Previous
+</a>
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex + 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @nextDisabled">
+    Next
+</a>
