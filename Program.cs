@@ -1,29 +1,19 @@
+using IncidentReporting.Areas.Identity.Data;
+using IncidentReporting.Data;
+using IncidentReporting.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using IncidentReporting.Data;
-using IncidentReporting.Areas.Identity.Data;
-using QuestPDF.Fluent;
-using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
-using IncidentReporting.Models;
-using MySqlConnector;
-using System.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("IncidentReportingContextConnection") ?? throw new InvalidOperationException("Connection string 'IncidentReportingContextConnection' not found.");
 
 builder.Services.AddDbContext<IncidentReportingContext>(options =>
     options.UseMySQL(connectionString));
-//builder.Services.AddDbContext<IncidentReportingContext>(options =>
-//        options.UseMySQL(Configuration.GetConnectionString("IncidentReportingContextConnection")));
-
 
 builder.Services.AddDefaultIdentity<ApplicationUser>().AddDefaultTokenProviders()
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<IncidentReportingContext>();
-
-//builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
-//    .AddEntityFrameworkStores<IncidentReportingContext>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -64,9 +54,18 @@ app.UseAuthorization();
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
-    await UserRoleInitializer.Initialize(services);
+    var logger = services.GetRequiredService<ILogger<Program>>();
+    var context = services.GetRequiredService<IncidentReportingContext>();
+    try
+    {
+        await context.Database.MigrateAsync();
+        await UserRoleInitializer.Initialize(services);
+    }
+    catch (Exception ex)
+    {
+        logger.LogError(ex, "An error occured during migration");
+    }   
 }
-
 
 app.MapControllerRoute(
     name: "default",

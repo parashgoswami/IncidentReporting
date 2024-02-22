@@ -35,25 +35,25 @@
             <th>
                 @* @Html.DisplayNameFor(model => model.Period)*@
                 @* <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]">@Html.DisplayNameFor(model => model.Period)</a>*@
-                <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Period</a>
+                 <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Period</a>
             </th>
-            <th>
+            @*<th> *@
                 @* @Html.DisplayNameFor(model => model.ReleaseDate)*@
                 @* <a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]">@Html.DisplayNameFor(model => model.ReleaseDate)</a>*@
-                <a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Incident Date</a>
-            </th>
+             @*    <a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Incident Date</a>
+            </th> *@ 
             <th>
                 @* @Html.DisplayNameFor(model => model.Department)*@
                 Department/Div
             </th>
             <th>
                 @* @Html.DisplayNameFor(model => model.LocationIncident)*@
-                Location of Incident
+                Location of Incident/Incident Desc
             </th>
-            <th>
-                @* @Html.DisplayNameFor(model => model.NamePersonAffected)*@
+           @*  <th>
+                @Html.DisplayNameFor(model => model.NamePersonAffected)
                 Name of Person Affected
-            </th>
+            </th> *@
          @*    <th>
                 
                 Address of Person
@@ -74,10 +74,10 @@
                 
                 Nature of Injury
             </th> *@
-            <th>
+          @*   <th>
                
                 Cause of Incident
-            </th>
+            </th> *@
            @*  <th>
                 
                 Nature of Duty
@@ -136,18 +136,18 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Period)
                 </td>
-                <td>
+             @*    <td>
                     @Html.DisplayFor(modelItem => item.ReleaseDate)
-                </td>
+                </td> *@
                 <td>
                     @Html.DisplayFor(modelItem => item.Department)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.LocationIncident)
                 </td>
-                <td>
+                @* <td>
                     @Html.DisplayFor(modelItem => item.NamePersonAffected)
-                </td>
+                </td> *@
                @*  <td>
                     @Html.DisplayFor(modelItem => item.AddressPerson)
                 </td>
@@ -163,9 +163,9 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.NatureInjury)
                 </td> *@
-                <td>
+               @*  <td>
                     @Html.DisplayFor(modelItem => item.CauseIncident)
-                </td>
+                </td> *@
                 @* <td>
                     @Html.DisplayFor(modelItem => item.NatureofDuty)
                 </td>

@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IncidentReporting.Migrations
 {
     [DbContext(typeof(IncidentReportingContext))]
-    [Migration("20231101110536_InitialCreate")]
+    [Migration("20240222064017_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -112,10 +112,10 @@ namespace IncidentReporting.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("DateOfInstallation")
+                    b.Property<DateTime?>("DateOfInstallation")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<DateTime>("DateOfManufacture")
+                    b.Property<DateTime?>("DateOfManufacture")
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("DepartmentDiv")
@@ -123,7 +123,6 @@ namespace IncidentReporting.Migrations
                         .HasColumnType("longtext");
 
                     b.Property<string>("DescByWitness")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Description")
@@ -131,33 +130,27 @@ namespace IncidentReporting.Migrations
                         .HasColumnType("longtext");
 
                     b.Property<string>("EyeWitnessPerson")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<DateTime>("LastDateOfMaintenance")
+                    b.Property<DateTime?>("LastDateOfMaintenance")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<DateTime>("LastDateTest")
+                    b.Property<DateTime?>("LastDateTest")
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("LocationIncident")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Manufacturer")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("NameEquip")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("NatureDamage")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("NatureOcc")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Period")
@@ -169,18 +162,15 @@ namespace IncidentReporting.Migrations
                         .HasColumnType("longtext");
 
                     b.Property<string>("PrvAction")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("PurposeUsed")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("ReasonOccurence")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<DateTime>("ReleaseDate")
+                    b.Property<DateTime?>("ReleaseDate")
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("Remark")
@@ -212,14 +202,12 @@ namespace IncidentReporting.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("AddressPerson")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<int>("Age")
+                    b.Property<int?>("Age")
                         .HasColumnType("int");
 
                     b.Property<string>("CauseIncident")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Department")
@@ -227,23 +215,18 @@ namespace IncidentReporting.Migrations
                         .HasColumnType("longtext");
 
                     b.Property<string>("Designation")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("EmpPosture")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("EmployerName")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("ExpDisablement")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("EyeWitnessDivision")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("LocationIncident")
@@ -251,19 +234,15 @@ namespace IncidentReporting.Migrations
                         .HasColumnType("longtext");
 
                     b.Property<string>("NameEyeWitness")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("NamePersonAffected")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("NatureInjury")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("NatureofDuty")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Period")
@@ -274,7 +253,7 @@ namespace IncidentReporting.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<DateTime>("ReleaseDate")
+                    b.Property<DateTime?>("ReleaseDate")
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("Remark")
@@ -289,11 +268,9 @@ namespace IncidentReporting.Migrations
                         .HasColumnType("longtext");
 
                     b.Property<string>("ServiceLength")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Sex")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<int?>("Status")
@@ -323,15 +300,12 @@ namespace IncidentReporting.Migrations
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Escape")
-                        .IsRequired()
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("EyeWitness")
-                        .IsRequired()
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("LocationIncident")
-                        .IsRequired()
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Period")
@@ -343,14 +317,12 @@ namespace IncidentReporting.Migrations
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("PrvMeasure")
-                        .IsRequired()
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Reason")
-                        .IsRequired()
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<DateTime>("ReleaseDate")
+                    b.Property<DateTime?>("ReleaseDate")
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("Remark")
